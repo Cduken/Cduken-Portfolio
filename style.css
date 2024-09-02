@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
 
 * {
     margin: 0;
@@ -19,9 +19,7 @@ html {
     --text-color: orangered;
 }
 
-
 body {
-    
     background: rgb(103,104,157);
     background: linear-gradient(90deg, rgba(103,104,157,1) 0%, rgba(30,32,108,1) 100%);
     height: 100vh;
@@ -39,7 +37,7 @@ header {
     width: 100%;
     backdrop-filter: blur(90px);
     display: flex;
-    padding: 30px 5%;
+    padding: 20px 5%;
     align-items: center;
     justify-content: space-between;
     z-index: 100;
@@ -61,6 +59,11 @@ header {
 
 span {
     color: var(--text-color);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
 }
 
 .navbar a {
@@ -86,6 +89,14 @@ span {
     background: var(--text-color);
 }
 
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    font-size: 30px;
+    color: white;
+    z-index: 101; 
+}
+
 .contactBtn {
     font-size: 16px;
     color: black;
@@ -105,16 +116,22 @@ span {
 }
 
 .home {
+    margin-top: 30px;
     display: flex;
     width: 100%;
     min-height: 100vh;
     align-items: center;
-    gap: 8em;
+    gap: 2em;
     padding: 30px 5%;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
 }
 
 .home-content {
-    max-width: 800px;
+    text-align: justify;
+    max-width: 700px;
     color: white;
 }
 
@@ -134,49 +151,37 @@ span {
 
 .btn-box {
     margin-top: 20px;
-    width: 345px;
+    width: 100%;
     display: flex;
+    /* justify-content: center; */
     gap: 2em;
+    flex-wrap: wrap;
 }
 
-.btn1 {
+.btn1, .btn2 {
     padding: 15px 20px;
     letter-spacing: 1px;
     font-weight: 600;
     border: 2px solid transparent;
     border-radius: 5px;
     transition: 0.3s ease-in-out;
+    width: 150px;
+    text-align: center;
 }
 
-.btn1:hover {
-    background: var(--text-color);
-    color: white;
-    box-shadow: 0 0 15px orangered;
-}
-
-.btn2 {
-    padding: 15px 15px;
-    border-radius: 5px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    border: 2px solid transparent;
-    transition: 0.3s ease-in-out;
-}
-
-.btn2:hover {
+.btn1:hover, .btn2:hover {
     background: var(--text-color);
     color: white;
     box-shadow: 0 0 15px orangered;
 }
 
 .img-box img {
-    margin-left: 80px;
-    width: 350px;
-    height: 350px;
+    margin-left: 0;
+    width: 250px;
+    height: 250px;
     border-radius: 50%;
     box-shadow: 0 0 50px black;
 }
-
 
 ::-webkit-scrollbar {
     width: 12px;
@@ -200,21 +205,35 @@ span {
 
 .about {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10em;
+    gap: 2em;
     padding: 10% 5%;
+    text-align: center;
+    text-align: justify;
+}
+
+.about-content {
+    width: 800px;
+}
+
+.about-content p {
+    font-size: 18px;
 }
 
 .about-content h2 {
     font-size: 30px;
+    text-align: center;
 }
 
 .about-img img {
-    position: relative;
-    width: 550px;
+    width: 300px;
     border: 2px solid transparent;
     border-radius: 10px;
+}
+.about-img .gaming {
+    height: 170px;
 }
 
 .contact-form {
@@ -242,7 +261,7 @@ span {
 }
 
 .contact-form form .input-box input {
-    width: 48%;
+    width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -312,4 +331,109 @@ span {
     margin-bottom: 20px;
 }
 
+@media (max-width: 615px) {
+    header {
+        padding: 10px 5%;
+    }
 
+    .logo {
+        font-size: 18px;
+    }
+
+    .menu-icon {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin-top: 5px;
+        margin-right: 5px;
+    }
+
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        background: rgba(0, 0, 0, 0.836);
+        border-radius: 5px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+        backdrop-filter: blur(60px);
+        position: absolute;
+        top: 100%;
+        transform: translateX(100%);
+        right: 0;
+        height: 80vh;
+        z-index: 99;
+        padding: 20px 0;
+        transition: transform 0.3s ease-in-out; 
+    }
+    
+    .navbar.show {
+        transform: translateX(0);
+    }
+    
+
+    .navbar a {
+        font-size:18px;
+        margin-top: 50px;
+    }
+
+    .home-content h1 {
+        font-size: 1.6em;
+    }
+
+
+    .home-content h3 {
+        font-size: 20px;
+    }
+
+    .home-content p {
+        font-size: 14px;
+        margin: 10px 0 20px;
+    }
+
+    .btn1, .btn2 {
+        padding: 8px 10px;
+        width: 100px;
+    }
+
+    .img-box img {
+        width: 250px;
+        height: 250px;
+    }
+
+    .about-content h2 {
+        font-size: 20px;
+    }
+
+    .about-content p{
+        font-size: 14px;
+    }
+
+    .about-content {
+        width: 300px;
+    }
+
+    .about .about-img  {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .contact-form h2 {
+        font-size: 20px;
+    }
+
+    .contactBtn {
+        display: flex;
+        position: absolute;
+        right: 50px;
+        font-size: 10px;
+    }
+
+    .footer .socials {
+        font-size: 20px;
+    }
+
+    .footer p {
+        font-size: 12px;
+    }
+}
